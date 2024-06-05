@@ -1,1 +1,16 @@
-<p>collection-one works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let ring of rings">
+      <div class="card card-custom mb-4">
+        <div class="card-img-wrapper">
+          <img [src]="ring.image" class="card-img-top" alt="Ring" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ ring.title }}</h5>
+          <p class="card-text">EGP {{ ring.price }}</p>
+          <a href="#" class="btn btn-custom">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

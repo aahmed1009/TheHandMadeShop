@@ -1,0 +1,62 @@
+/* Custom CSS for card components with a pink and creamy color scheme */
+body {
+  background-color: #fce4ec; /* Light pink background */
+}
+
+.card-custom {
+  background-color: #fff; /* White background */
+  border: 1px solid #f8bbd0; /* Light pink border */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: transform 0.2s; /* Smooth transform on hover */
+  margin: auto; /* Center align cards */
+}
+
+.card-custom:hover {
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+.card-img-wrapper {
+  height: 200px; /* Fixed height for image wrapper */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.card-custom .card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-custom .card-title {
+  color: #d81b60; /* Dark pink text */
+  font-weight: bold;
+  font-size: 1.2em;
+  text-align: center;
+}
+
+.card-custom .card-text {
+  color: #880e4f; /* Darker shade for text */
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.btn-custom {
+  background-color: #f06292; /* Pink button */
+  border-color: #ec407a; /* Matching border */
+  color: #fff; /* White text */
+  padding: 5px 10px; /* Smaller padding for button */
+  font-weight: bold;
+  text-align: center;
+  display: block;
+  margin: 10px auto 0; /* Center align button */
+  transition: background-color 0.2s, border-color 0.2s; /* Smooth transition for hover */
+}
+
+.btn-custom:hover {
+  background-color: #ec407a; /* Darker pink on hover */
+  border-color: #d81b60; /* Darker border on hover */
+}

@@ -19,9 +19,6 @@ import { CollectionThreeComponent } from './collection-three/collection-three.co
 import { OurProductsComponent } from './home/our-products/our-products.component';
 import { FeaturedProductsComponent } from './home/featured-products/featured-products.component';
 import { TestimonialsComponent } from './home/testimonials/testimonials.component';
-import { ProductComponent } from './home/product/product.component';
-import { CartComponent } from './home/cart/cart.component';
-import { CheckoutComponent } from './home/checkout/checkout.component';
 
 @NgModule({
   declarations: [
@@ -41,9 +38,6 @@ import { CheckoutComponent } from './home/checkout/checkout.component';
     OurProductsComponent,
     FeaturedProductsComponent,
     TestimonialsComponent,
-    ProductComponent,
-    CartComponent,
-    CheckoutComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
   providers: [],

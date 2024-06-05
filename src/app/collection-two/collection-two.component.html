@@ -1,1 +1,18 @@
-<p>collection-two works!</p>
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4" *ngFor="let bracelet of bracelets">
+      <div class="card card-custom mb-4">
+        <div class="card-img-wrapper">
+          <img [src]="bracelet.image" class="card-img-top" alt="Bracelet" />
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">{{ bracelet.title }}</h5>
+          <p class="card-text">
+            {{ bracelet.price | currency : "EGP" : "symbol" }}
+          </p>
+          <a href="#" class="btn btn-custom">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
