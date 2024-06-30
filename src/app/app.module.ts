@@ -19,7 +19,9 @@ import { CollectionThreeComponent } from './collection-three/collection-three.co
 import { OurProductsComponent } from './home/our-products/our-products.component';
 import { FeaturedProductsComponent } from './home/featured-products/featured-products.component';
 import { TestimonialsComponent } from './home/testimonials/testimonials.component';
-
+import { HttpClientModule } from '@angular/common/http';
+import { ProductsDetailsComponent } from './home/products-details/products-details.component';
+import { UpdateUserProfileComponent } from './update-user-profile/update-user-profile.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,8 +40,16 @@ import { TestimonialsComponent } from './home/testimonials/testimonials.componen
     OurProductsComponent,
     FeaturedProductsComponent,
     TestimonialsComponent,
+    ProductsDetailsComponent,
+    UpdateUserProfileComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

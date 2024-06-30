@@ -1,25 +1,25 @@
 <div
   class="container-fluid d-flex justify-content-center align-items-center vh-100"
-  style="background-color: #fce4ec"
+  style="background-color: #e3f2fd"
 >
   <form
-    [formGroup]="signupForm"
+    [formGroup]="updateForm"
     class="shadow p-5 rounded"
     (ngSubmit)="onSubmit()"
     style="background-color: #fff; max-width: 500px; width: 100%"
   >
-    <h1 class="h3 mb-4 fw-normal text-center" style="color: #e91e63">
-      Sign Up
+    <h1 class="h3 mb-4 fw-normal text-center" style="color: #1e88e5">
+      Update Profile
     </h1>
 
     <div class="form-group mb-4 position-relative">
-      <label for="fullName" class="form-label" style="color: #e91e63"
+      <label for="fullName" class="form-label" style="color: #1e88e5"
         >Full Name</label
       >
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background-color: #f8f0e3">
-            <i class="fas fa-user" style="color: #e91e63"></i>
+          <span class="input-group-text" style="background-color: #e1f5fe">
+            <i class="fas fa-user" style="color: #1e88e5"></i>
           </span>
         </div>
         <input
@@ -32,14 +32,14 @@
             border-left: 0;
             border-right: 0;
             border-top: 0;
-            border-bottom: 2px solid #e91e63;
+            border-bottom: 2px solid #1e88e5;
           "
         />
       </div>
       <div
         *ngIf="
-          signupForm.get('fullName')?.invalid &&
-          signupForm.get('fullName')?.touched
+          updateForm.get('fullName')?.invalid &&
+          updateForm.get('fullName')?.touched
         "
         class="text-danger mt-1"
       >
@@ -48,13 +48,13 @@
     </div>
 
     <div class="form-group mb-4 position-relative">
-      <label for="email" class="form-label" style="color: #e91e63"
+      <label for="email" class="form-label" style="color: #1e88e5"
         >Email address</label
       >
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background-color: #f8f0e3">
-            <i class="fas fa-envelope" style="color: #e91e63"></i>
+          <span class="input-group-text" style="background-color: #e1f5fe">
+            <i class="fas fa-envelope" style="color: #1e88e5"></i>
           </span>
         </div>
         <input
@@ -67,13 +67,13 @@
             border-left: 0;
             border-right: 0;
             border-top: 0;
-            border-bottom: 2px solid #e91e63;
+            border-bottom: 2px solid #1e88e5;
           "
         />
       </div>
       <div
         *ngIf="
-          signupForm.get('email')?.invalid && signupForm.get('email')?.touched
+          updateForm.get('email')?.invalid && updateForm.get('email')?.touched
         "
         class="text-danger mt-1"
       >
@@ -82,13 +82,13 @@
     </div>
 
     <div class="form-group mb-4 position-relative">
-      <label for="password" class="form-label" style="color: #e91e63"
-        >Password</label
+      <label for="password" class="form-label" style="color: #1e88e5"
+        >New Password</label
       >
       <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text" style="background-color: #f8f0e3">
-            <i class="fas fa-lock" style="color: #e91e63"></i>
+          <span class="input-group-text" style="background-color: #e1f5fe">
+            <i class="fas fa-lock" style="color: #1e88e5"></i>
           </span>
         </div>
         <input
@@ -96,19 +96,19 @@
           class="form-control"
           id="password"
           formControlName="password"
-          placeholder="Password"
+          placeholder="New Password"
           style="
             border-left: 0;
             border-right: 0;
             border-top: 0;
-            border-bottom: 2px solid #e91e63;
+            border-bottom: 2px solid #1e88e5;
           "
         />
       </div>
       <div
         *ngIf="
-          signupForm.get('password')?.invalid &&
-          signupForm.get('password')?.touched
+          updateForm.get('password')?.invalid &&
+          updateForm.get('password')?.touched
         "
         class="text-danger mt-1"
       >
@@ -119,10 +119,10 @@
     <button
       class="w-100 btn btn-lg btn-primary"
       type="submit"
-      [disabled]="signupForm.invalid"
-      style="background-color: #e91e63; border: none; font-weight: bold"
+      [disabled]="updateForm.invalid"
+      style="background-color: #1e88e5; border: none; font-weight: bold"
     >
-      Sign Up
+      Update
     </button>
     <label style="color: green" for="">{{ message }}</label>
     <label style="color: red" for="">{{ message2 }}</label>

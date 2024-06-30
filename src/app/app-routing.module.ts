@@ -10,7 +10,8 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { CollectionOneComponent } from './collection-one/collection-one.component';
 import { CollectionTwoComponent } from './collection-two/collection-two.component';
 import { CollectionThreeComponent } from './collection-three/collection-three.component';
-
+import { ProductsDetailsComponent } from './home/products-details/products-details.component';
+import { UpdateUserProfileComponent } from './update-user-profile/update-user-profile.component';
 const routes: Routes = [
   {
     path: 'home',
@@ -50,6 +51,8 @@ const routes: Routes = [
     component: SignupComponent,
   },
   { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'products-details/:id', component: ProductsDetailsComponent },
+  { path: 'update-user-profile/:id', component: UpdateUserProfileComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
