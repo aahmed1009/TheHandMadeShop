@@ -36,7 +36,7 @@ export class SignupComponent {
       const email = this.signupForm.get('email')!.value; //  non-null assertion
       const password = this.signupForm.get('password')!.value; //  non-null assertion
 
-      this.api.insert_user(this.signupForm.value).subscribe({
+      this.api.register_user(this.signupForm.value).subscribe({
         next: (data: any) => {
           console.log(data['message']);
           if (data['message'] == ' Registration successful') {

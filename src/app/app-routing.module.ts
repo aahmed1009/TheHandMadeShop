@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CollectionComponent } from './collection/collection.component';
@@ -12,10 +13,13 @@ import { CollectionTwoComponent } from './collection-two/collection-two.componen
 import { CollectionThreeComponent } from './collection-three/collection-three.component';
 import { ProductsDetailsComponent } from './home/products-details/products-details.component';
 import { UpdateUserProfileComponent } from './update-user-profile/update-user-profile.component';
+import { LogoutComponent } from './logout/logout.component';
+
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'about',
@@ -50,6 +54,7 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
+  { path: 'logout', component: LogoutComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'products-details/:id', component: ProductsDetailsComponent },
   { path: 'update-user-profile/:id', component: UpdateUserProfileComponent },

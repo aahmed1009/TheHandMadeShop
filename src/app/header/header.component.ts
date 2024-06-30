@@ -1,5 +1,7 @@
+// src/app/header/header.component.ts
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from 'services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private router: Router) {}
+  constructor(private router: Router, private authService: AuthService) {}
 
   navigateToLogin() {
     this.router.navigate(['/login']);
@@ -16,8 +18,16 @@ export class HeaderComponent {
   navigateToSignUp() {
     this.router.navigate(['/signup']);
   }
+
   isLogined() {
-    // return this.route.url == '/login' || this.route.url == '/home';
-    return this.router.url == '/login' || this.router.url == '/signup';
+    return this.authService.isAuthenticated();
+  }
+
+  getUserName() {
+    return this.authService.getUserName();
+  }
+
+  logout() {
+    this.router.navigate(['/logout']);
   }
 }

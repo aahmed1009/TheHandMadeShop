@@ -1,6 +1,9 @@
+// src/app/login/login.component.ts
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from 'services/api.service';
+import { AuthService } from 'services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -9,11 +12,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class LoginComponent {
   loginForm: FormGroup;
+  errorMessage: string | null = null;
 
   constructor(
     private fb: FormBuilder,
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private api: ApiService,
+    private authService: AuthService
   ) {
     this.loginForm = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
@@ -35,12 +41,25 @@ export class LoginComponent {
     });
   }
 
-  onSubmit(): void {
+  loginuser(): void {
     if (this.loginForm.valid) {
-      console.log(this.loginForm.value);
-      // Handle form submission
-      // If login fails due to unregistered account
-      this.router.navigate(['/sign-up']);
+      this.api.insert_user(this.loginForm.value).subscribe({
+        next: (res: any) => {
+          if (res['message'] === 'Success') {
+            this.authService.login(res['token'], res['name']);
+            this.router.navigate(['/']);
+          } else {
+            this.errorMessage = 'Login failed: ' + res['error'];
+          }
+        },
+        error: (err: any) => {
+          this.errorMessage = 'Login error: ' + err.message;
+        },
+      });
     }
+  }
+
+  onSubmit(): void {
+    this.loginuser();
   }
 }

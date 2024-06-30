@@ -22,6 +22,7 @@ import { TestimonialsComponent } from './home/testimonials/testimonials.componen
 import { HttpClientModule } from '@angular/common/http';
 import { ProductsDetailsComponent } from './home/products-details/products-details.component';
 import { UpdateUserProfileComponent } from './update-user-profile/update-user-profile.component';
+
 @NgModule({
   declarations: [
     AppComponent,

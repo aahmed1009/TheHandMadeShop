@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root',
 })
@@ -20,12 +20,15 @@ export class ApiService {
   get_UsersDetails(cond: any) {
     return this.http.get<any[]>(`${this.baseUrl}/get_users.php?${cond}`);
   }
-  insert_user(data: any) {
+
+  register_user(data: any): Observable<any> {
     const body = JSON.stringify(data);
-    console.log(body);
     return this.http.post(this.baseUrl + '/register.php', body);
   }
-
+  insert_user(data: any): Observable<any> {
+    const body = JSON.stringify(data);
+    return this.http.post(this.baseUrl + '/login.php', body);
+  }
   update_user(data: any) {
     const body = JSON.stringify(data);
     console.log(body);
