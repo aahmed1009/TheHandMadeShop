@@ -3,73 +3,115 @@
   class="navbar navbar-expand-lg navbar-light"
   style="background-color: #fce4ec"
 >
-  <a class="navbar-brand">
-    <img
-      src="assets/images/logo-pink.png"
-      alt="Logo"
-      style="height: 40px; margin-right: 10px"
-    />
-    Shamsia
-  </a>
-  <button
-    class="navbar-toggler"
-    type="button"
-    data-bs-toggle="collapse"
-    data-bs-target="#navbarNav"
-    aria-controls="navbarNav"
-    aria-expanded="false"
-    aria-label="Toggle navigation"
-  >
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" routerLink="/"
-          >Home <span class="sr-only">(current)</span></a
-        >
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/about">About</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a
-          class="nav-link dropdown-toggle"
-          id="navbarDropdown"
-          role="button"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          Collections
-        </a>
-        <div
-          class="dropdown-menu"
-          aria-labelledby="navbarDropdown"
-          style="background-color: #fce4ec"
-        >
-          <a class="dropdown-item" routerLink="/collection-one">Rings</a>
-          <a class="dropdown-item" routerLink="/collection-two">Bracelets</a>
-          <a class="dropdown-item" routerLink="/collection-three">Earrings</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/contact">Contact</a>
-      </li>
-    </ul>
-    <div class="navbar-buttons d-flex flex-column flex-lg-row">
-      <ng-container *ngIf="!isLogined(); else loggedIn">
-        <a
-          class="btn btn-outline-primary mr-0 mr-lg-2 mb-2 mb-lg-0"
-          (click)="navigateToLogin()"
-          >Login</a
-        >
-        <a class="btn btn-primary" (click)="navigateToSignUp()">Sign Up</a>
-      </ng-container>
-      <ng-template #loggedIn>
-        <span class="navbar-text mr-3">Welcome, {{ getUserName() }}!</span>
-        <a class="btn btn-outline-danger" (click)="logout()">Logout</a>
-      </ng-template>
+  <div class="container-fluid">
+    <a class="navbar-brand">
+      <img
+        src="assets/images/logo-pink.png"
+        alt="Logo"
+        style="height: 40px; margin-right: 10px"
+      />
+      Shamsia
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/about">About</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Collections
+          </a>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="navbarDropdown"
+            style="background-color: #fce4ec"
+          >
+            <li>
+              <a class="dropdown-item" routerLink="/collection-one">Rings</a>
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/collection-two"
+                >Bracelets</a
+              >
+            </li>
+            <li>
+              <a class="dropdown-item" routerLink="/collection-three"
+                >Earrings</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/contact">Contact</a>
+        </li>
+      </ul>
+      <div class="navbar-buttons d-flex align-items-center">
+        <ng-container *ngIf="!isLogined(); else loggedIn">
+          <button
+            class="btn btn-outline-primary me-2"
+            (click)="navigateToLogin()"
+          >
+            Login
+          </button>
+          <button class="btn btn-primary" (click)="navigateToSignUp()">
+            Sign Up
+          </button>
+        </ng-container>
+        <ng-template #loggedIn>
+          <div class="dropdown">
+            <a
+              class="nav-link dropdown-toggle"
+              id="userDropdown"
+              role="button"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              <i class="fas fa-user-circle fa-2x"></i>
+            </a>
+            <ul
+              class="dropdown-menu dropdown-menu-end"
+              aria-labelledby="userDropdown"
+              style="background-color: #fce4ec"
+            >
+              <li>
+                <a class="dropdown-item" routerLink="/update-user-profile"
+                  >Edit Profile</a
+                >
+              </li>
+              <li>
+                <a class="dropdown-item" routerLink="/dashboard">Dashboard</a>
+              </li>
+
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a class="dropdown-item text-danger" (click)="logout()"
+                  >Logout</a
+                >
+              </li>
+            </ul>
+          </div>
+        </ng-template>
+      </div>
     </div>
   </div>
 </nav>

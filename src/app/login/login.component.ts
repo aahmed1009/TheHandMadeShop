@@ -41,25 +41,28 @@ export class LoginComponent {
     });
   }
 
-  loginuser(): void {
+  loginUser(): void {
     if (this.loginForm.valid) {
       this.api.insert_user(this.loginForm.value).subscribe({
         next: (res: any) => {
           if (res['message'] === 'Success') {
-            this.authService.login(res['token'], res['name']);
+            this.authService.login(res['token'], res['name'], res['id']);
             this.router.navigate(['/']);
           } else {
-            this.errorMessage = 'Login failed: ' + res['error'];
+            this.errorMessage =
+              res['error'] || 'Login failed. Please try again.';
           }
         },
         error: (err: any) => {
-          this.errorMessage = 'Login error: ' + err.message;
+          this.errorMessage =
+            err.error?.message || 'An error occurred. Please try again.';
         },
       });
     }
   }
 
   onSubmit(): void {
-    this.loginuser();
+    this.errorMessage = null; // Reset error message
+    this.loginUser();
   }
 }

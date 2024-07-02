@@ -10,6 +10,10 @@
   >
     <h1 class="h3 mb-4 fw-normal text-center" style="color: #e91e63">Login</h1>
 
+    <div *ngIf="errorMessage" class="alert alert-danger">
+      {{ errorMessage }}
+    </div>
+
     <div class="form-group mb-4 position-relative">
       <label for="email" class="form-label" style="color: #e91e63"
         >Email address</label

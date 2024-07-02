@@ -1,0 +1,24 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Full Name</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.full_name }}</td>
+      <!-- Use full_name to match API response -->
+      <td>
+        <a href="update-user-profile/{{ user.id }}" class="btn btn-info"
+          >Details or Update</a
+        >
+      </td>
+      <td>
+        <button (click)="deleteUser(user.id)" class="btn btn-danger">
+          Delete User
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>

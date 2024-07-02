@@ -1,3 +1,5 @@
+/* src/app/header/header.component.css */
+
 .navbar-nav {
   flex-grow: 1;
 }
@@ -9,15 +11,6 @@
 
 .navbar-buttons .btn {
   margin-left: 10px;
-}
-
-.footer {
-  background-color: #f8f9fa;
-  padding: 20px 0;
-  text-align: center;
-  position: fixed;
-  width: 100%;
-  bottom: 0;
 }
 
 .navbar-brand img {
@@ -38,14 +31,17 @@
   background-color: #e91e63;
   border: none;
 }
+
 .navbar-buttons .btn-outline-primary:hover {
   color: #ffffff;
   background-color: #e91e63;
   border-color: #e91e63;
 }
+
 .navbar-buttons .btn-primary:hover {
   background-color: #d81b60; /* Darker pink for hover state */
 }
+
 .navbar-toggler {
   border-color: #e91e63;
 }

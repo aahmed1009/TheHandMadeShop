@@ -14,12 +14,20 @@ import { CollectionThreeComponent } from './collection-three/collection-three.co
 import { ProductsDetailsComponent } from './home/products-details/products-details.component';
 import { UpdateUserProfileComponent } from './update-user-profile/update-user-profile.component';
 import { LogoutComponent } from './logout/logout.component';
+import { AdminRoleComponent } from './admin-role/admin-role.component';
+import { AddProductComponent } from './dashboard/add-product/add-product.component';
+import { EditDeleteProductComponent } from './dashboard/edit-delete-product/edit-delete-product.component';
+import { UserProductsComponent } from './dashboard/user-products/user-products.component';
+import { OrdersManagementComponent } from './dashboard/orders-management/orders-management.component';
+import { EditSpecificProductComponent } from './dashboard/edit-specific-product/edit-specific-product.component';
+import { CategoriesManagementComponent } from './dashboard/categories-management/categories-management.component';
+import { ReviewsManagementComponent } from './dashboard/reviews-management/reviews-management.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'about',
@@ -54,10 +62,41 @@ const routes: Routes = [
     path: 'signup',
     component: SignupComponent,
   },
+  {
+    path: 'update-user-profile',
+    component: UpdateUserProfileComponent,
+  },
+  {
+    path: 'admin-role',
+    component: AdminRoleComponent,
+  },
   { path: 'logout', component: LogoutComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'products-details/:id', component: ProductsDetailsComponent },
   { path: 'update-user-profile/:id', component: UpdateUserProfileComponent },
+  // Dashboard routes
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+    children: [
+      { path: 'add-product', component: AddProductComponent },
+      { path: 'edit-delete-product', component: EditDeleteProductComponent },
+      { path: 'user-products', component: UserProductsComponent },
+      {
+        path: 'edit-specific-product/:id',
+        component: EditSpecificProductComponent,
+      },
+      { path: 'orders-management', component: OrdersManagementComponent },
+      {
+        path: 'categories-management',
+        component: CategoriesManagementComponent,
+      },
+      { path: 'reviews-management', component: ReviewsManagementComponent },
+      { path: 'user-management', component: OrdersManagementComponent },
+      { path: '', redirectTo: 'add-product', pathMatch: 'full' },
+    ],
+  },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];

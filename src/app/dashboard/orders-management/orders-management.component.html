@@ -1,0 +1,33 @@
+<div class="container mt-3">
+  <h3>Manage Orders</h3>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>User ID</th>
+        <th>Total Amount</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders">
+        <td>{{ order.id }}</td>
+        <td>{{ order.user_id }}</td>
+        <td>{{ order.total_amount }}</td>
+        <td>{{ order.status }}</td>
+        <td>
+          <button class="btn btn-info" (click)="viewOrder(order.id)">
+            View
+          </button>
+          <button class="btn btn-warning" (click)="editOrder(order)">
+            Edit
+          </button>
+          <button class="btn btn-danger" (click)="deleteOrder(order.id)">
+            Delete
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
