@@ -53,20 +53,41 @@
       </select>
     </div>
     <div class="mb-3">
-      <label for="image" class="form-label">Product Image</label>
+      <label for="images" class="form-label">Product Images</label>
       <input
         type="file"
         class="form-control"
-        id="image"
+        id="images"
         (change)="onFileSelect($event)"
+        multiple
       />
+    </div>
+    <div class="mb-3">
+      <label for="existing-images" class="form-label">Existing Images</label>
+      <div *ngIf="existingImages.length">
+        <div *ngFor="let image of existingImages" class="mb-2">
+          <img
+            [src]="image"
+            alt="Product Image"
+            class="img-thumbnail"
+            style="max-height: 100px"
+          />
+          <button
+            type="button"
+            class="btn btn-danger"
+            (click)="onImageDelete(image)"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
     </div>
     <button
       type="submit"
       class="btn btn-primary"
       [disabled]="editProductForm.invalid"
     >
-      Save Changes
+      save changes
     </button>
   </form>
 </div>

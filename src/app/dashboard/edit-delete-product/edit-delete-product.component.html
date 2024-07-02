@@ -4,7 +4,7 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Image</th>
+        <th>Images</th>
         <th>Description</th>
         <th>Price</th>
         <th>Stock</th>
@@ -15,12 +15,15 @@
       <tr *ngFor="let product of products">
         <td>{{ product.name }}</td>
         <td>
-          <img
-            [src]="product.image"
-            alt="{{ product.name }}"
-            class="img-thumbnail"
-            style="max-height: 100px"
-          />
+          <div *ngIf="product.images">
+            <img
+              *ngFor="let image of product.images"
+              [src]="image"
+              [alt]="product.name"
+              class="img-thumbnail"
+              style="max-height: 100px; margin-right: 5px"
+            />
+          </div>
         </td>
         <td>{{ product.description }}</td>
         <td>{{ product.price }}</td>

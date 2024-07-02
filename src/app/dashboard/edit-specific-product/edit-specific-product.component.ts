@@ -12,7 +12,9 @@ export class EditSpecificProductComponent {
   editProductForm: FormGroup;
   categories: any[] = [];
   productId: number;
-  selectedFile: File | null = null;
+  selectedFiles: File[] = [];
+  existingImages: string[] = [];
+  imagesToDelete: string[] = [];
 
   constructor(
     private fb: FormBuilder,
@@ -40,12 +42,25 @@ export class EditSpecificProductComponent {
   loadProduct(): void {
     this.apiService.getProductById(this.productId).subscribe((data: any) => {
       this.editProductForm.patchValue(data);
+      if (data.images) {
+        this.existingImages = JSON.parse(data.images).map(
+          (img: string) => `http://localhost/APIS/uploads/${img}`
+        );
+      }
     });
   }
 
   onFileSelect(event: any): void {
     if (event.target.files.length > 0) {
-      this.selectedFile = event.target.files[0];
+      this.selectedFiles = Array.from(event.target.files);
+    }
+  }
+
+  onImageDelete(image: string): void {
+    const imageName = image.split('/').pop(); // Extract the base name
+    if (imageName) {
+      this.imagesToDelete.push(imageName);
+      this.existingImages = this.existingImages.filter((img) => img !== image);
     }
   }
 
@@ -63,9 +78,10 @@ export class EditSpecificProductComponent {
         'category_id',
         this.editProductForm.get('category_id')?.value
       );
-      if (this.selectedFile) {
-        formData.append('image', this.selectedFile);
-      }
+      formData.append('delete_images', JSON.stringify(this.imagesToDelete));
+      this.selectedFiles.forEach((file, index) => {
+        formData.append('images[]', file, file.name);
+      });
 
       this.apiService.updateProduct(this.productId, formData).subscribe({
         next: (res) => {

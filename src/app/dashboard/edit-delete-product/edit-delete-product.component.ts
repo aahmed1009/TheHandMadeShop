@@ -19,7 +19,11 @@ export class EditDeleteProductComponent {
   loadProducts(): void {
     this.apiService.getProducts().subscribe((data: any) => {
       this.products = data.map((product: any) => {
-        product.image = `http://localhost/APIS/uploads/${product.image}`;
+        if (product.images) {
+          product.images = JSON.parse(product.images).map(
+            (img: string) => `http://localhost/APIS/uploads/${img}`
+          );
+        }
         return product;
       });
     });
