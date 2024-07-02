@@ -1,5 +1,5 @@
 <div class="container mt-3">
-  <h3>Manage Categories</h3>
+  <h3>{{ editingCategoryId ? "Edit Category" : "Add New Category" }}</h3>
   <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
     <div class="mb-3">
       <label for="name" class="form-label">Category Name</label>
@@ -23,7 +23,15 @@
       class="btn btn-primary"
       [disabled]="categoryForm.invalid"
     >
-      Add Category
+      {{ editingCategoryId ? "Update Category" : "Add Category" }}
+    </button>
+    <button
+      type="button"
+      class="btn btn-secondary ms-2"
+      (click)="resetForm()"
+      *ngIf="editingCategoryId !== null"
+    >
+      Cancel
     </button>
   </form>
   <h3 class="mt-5">Categories List</h3>

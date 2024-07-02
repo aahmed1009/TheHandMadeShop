@@ -76,7 +76,6 @@ export class ApiService {
   addProduct(data: FormData): Observable<any> {
     return this.http.post<any>(`${this.baseUrl}/add_product.php`, data);
   }
-
   updateProduct(id: number, data: FormData): Observable<any> {
     return this.http.post<any>(
       `${this.baseUrl}/update_product.php?id=${id}`,
