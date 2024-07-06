@@ -98,10 +98,14 @@
                   >Edit Profile</a
                 >
               </li>
-              <li>
-                <a class="dropdown-item" routerLink="/dashboard">Dashboard</a>
+              <li *ngIf="authService.getRole() !== 'guest'">
+                <a class="dropdown-item" (click)="navigateTo('/dashboard')"
+                  >Dashboard</a
+                >
               </li>
-
+              <li>
+                <a class="dropdown-item" (click)="navigateTo('/cart')">Cart</a>
+              </li>
               <li><hr class="dropdown-divider" /></li>
               <li>
                 <a class="dropdown-item text-danger" (click)="logout()"

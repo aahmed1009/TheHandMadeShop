@@ -1,0 +1,10 @@
+<div class="container mt-3">
+  <h3>Order Details</h3>
+  <div *ngIf="order">
+    <p><strong>Order ID:</strong> {{ order.id }}</p>
+    <p><strong>User ID:</strong> {{ order.user_id }}</p>
+    <p><strong>Total Amount:</strong> {{ order.total_amount }}</p>
+    <p><strong>Status:</strong> {{ order.status }}</p>
+    <!-- Add more fields as necessary -->
+  </div>
+</div>

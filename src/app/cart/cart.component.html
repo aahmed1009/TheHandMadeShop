@@ -1,0 +1,58 @@
+<div class="container mt-3">
+  <h3>Your Cart</h3>
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Product</th>
+          <th>Quantity</th>
+          <th>Unit Price</th>
+          <th>Total Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of cartItems">
+          <td>
+            <img
+              *ngIf="item.images && item.images.length > 0"
+              [src]="item.images[0]"
+              alt="{{ item.name }}"
+              style="max-height: 50px; margin-right: 10px"
+            />
+            {{ item.name }}
+          </td>
+          <td>
+            <button
+              class="btn btn-secondary btn-sm"
+              (click)="decreaseQuantity(item)"
+            >
+              -
+            </button>
+            {{ item.quantity }}
+            <button
+              class="btn btn-secondary btn-sm"
+              (click)="increaseQuantity(item)"
+            >
+              +
+            </button>
+          </td>
+          <td>{{ item.price }}</td>
+          <td>{{ item.price * item.quantity }}</td>
+          <td>
+            <button class="btn btn-danger" (click)="removeItem(item.id)">
+              Remove
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="text-right">
+      <h4>Total: ${{ getTotalAmount() }}</h4>
+      <button class="btn btn-primary" (click)="checkout()">Checkout</button>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <p>Your cart is empty.</p>
+  </ng-template>
+</div>

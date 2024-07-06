@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'services/api.service';
 
 @Component({
@@ -6,8 +6,9 @@ import { ApiService } from 'services/api.service';
   templateUrl: './orders-management.component.html',
   styleUrls: ['./orders-management.component.css'],
 })
-export class OrdersManagementComponent {
+export class OrdersManagementComponent implements OnInit {
   orders: any[] = [];
+  selectedOrder: any = null;
 
   constructor(private apiService: ApiService) {}
 
@@ -21,12 +22,10 @@ export class OrdersManagementComponent {
     });
   }
 
-  viewOrder(orderId: number): void {
-    // Logic to view order details
-  }
-
-  editOrder(order: any): void {
-    // Logic to edit order details
+  viewOrder(order: any): void {
+    this.apiService.getOrderById(order.id).subscribe((data: any) => {
+      this.selectedOrder = { ...order, items: data.items };
+    });
   }
 
   deleteOrder(orderId: number): void {

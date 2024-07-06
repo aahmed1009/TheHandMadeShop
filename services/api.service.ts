@@ -88,20 +88,57 @@ export class ApiService {
   }
 
   // Order Services
+
+  placeOrder(order: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/place_order.php`, order);
+  }
+
+  updateOrder(orderId: number, data: any): Observable<any> {
+    return this.http.post<any>(
+      `${this.baseUrl}/update_order.php?id=${orderId}`,
+      data
+    );
+  }
+
   getOrders(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/get_orders.php`);
   }
 
-  deleteOrder(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.baseUrl}/delete_order.php?id=${id}`);
+  getOrderById(orderId: number): Observable<any> {
+    return this.http.get<any>(`${this.baseUrl}/get_order.php?id=${orderId}`);
   }
 
+  deleteOrder(orderId: number): Observable<any> {
+    return this.http.delete<any>(
+      `${this.baseUrl}/delete_order.php?id=${orderId}`
+    );
+  }
+
+  createOrder(order: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/create_order.php`, order);
+  }
   // Review Services
   getReviews(): Observable<any[]> {
     return this.http.get<any[]>(`${this.baseUrl}/get_reviews.php`);
   }
 
+  addReview(review: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/add_review.php`, review);
+  }
+
   deleteReview(id: number): Observable<any> {
     return this.http.delete<any>(`${this.baseUrl}/delete_review.php?id=${id}`);
+  }
+  getrole() {
+    return localStorage.getItem('role');
+  }
+  addToCart(data: any): Observable<any> {
+    return this.http.post<any>(`${this.baseUrl}/cart.php`, data);
+  }
+
+  removeFromCart(userId: number, productId: number): Observable<any> {
+    return this.http.delete<any>(
+      `${this.baseUrl}/cart.php?user_id=${userId}&product_id=${productId}`
+    );
   }
 }

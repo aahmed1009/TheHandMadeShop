@@ -23,6 +23,10 @@ import { EditSpecificProductComponent } from './dashboard/edit-specific-product/
 import { CategoriesManagementComponent } from './dashboard/categories-management/categories-management.component';
 import { ReviewsManagementComponent } from './dashboard/reviews-management/reviews-management.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CartComponent } from './cart/cart.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderDetailsComponent } from './dashboard/order-details/order-details.component';
+import { EditOrderComponent } from './dashboard/edit-order/edit-order.component';
 
 const routes: Routes = [
   {
@@ -69,16 +73,20 @@ const routes: Routes = [
   {
     path: 'admin-role',
     component: AdminRoleComponent,
+    canActivate: [AuthGuard],
+    data: { role: ['admin'] },
   },
   { path: 'logout', component: LogoutComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'products-details/:id', component: ProductsDetailsComponent },
   { path: 'update-user-profile/:id', component: UpdateUserProfileComponent },
+  { path: 'cart', component: CartComponent },
   // Dashboard routes
   {
     path: 'dashboard',
     component: DashboardComponent,
     canActivate: [AuthGuard],
+    data: { role: ['user', 'admin'] },
     children: [
       { path: 'add-product', component: AddProductComponent },
       { path: 'edit-delete-product', component: EditDeleteProductComponent },

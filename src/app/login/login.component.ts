@@ -46,7 +46,12 @@ export class LoginComponent {
       this.api.insert_user(this.loginForm.value).subscribe({
         next: (res: any) => {
           if (res['message'] === 'Success') {
-            this.authService.login(res['token'], res['name'], res['id']);
+            this.authService.login(
+              res['token'],
+              res['name'],
+              res['id'],
+              res['role']
+            );
             this.router.navigate(['/']);
           } else {
             this.errorMessage =

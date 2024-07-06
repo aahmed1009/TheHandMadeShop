@@ -67,7 +67,7 @@ export class AddProductComponent {
         'category_id',
         this.addProductForm.get('category_id')?.value
       );
-      formData.append('add_by', this.addProductForm.get('add_by')?.value); // Append user ID
+      formData.append('add_by', this.addProductForm.get('add_by')?.value);
       this.selectedFiles.forEach((file, index) => {
         formData.append('images[]', file, file.name);
       });

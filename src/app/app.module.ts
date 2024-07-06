@@ -31,6 +31,11 @@ import { EditSpecificProductComponent } from './dashboard/edit-specific-product/
 import { OrdersManagementComponent } from './dashboard/orders-management/orders-management.component';
 import { CategoriesManagementComponent } from './dashboard/categories-management/categories-management.component';
 import { ReviewsManagementComponent } from './dashboard/reviews-management/reviews-management.component';
+import { CartComponent } from './cart/cart.component';
+import { AddReviewComponent } from './add-review/add-review.component';
+import { CheckoutComponent } from './checkout/checkout.component';
+import { OrderDetailsComponent } from './dashboard/order-details/order-details.component';
+import { EditOrderComponent } from './dashboard/edit-order/edit-order.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +66,11 @@ import { ReviewsManagementComponent } from './dashboard/reviews-management/revie
     OrdersManagementComponent,
     CategoriesManagementComponent,
     ReviewsManagementComponent,
+    CartComponent,
+    AddReviewComponent,
+    CheckoutComponent,
+    OrderDetailsComponent,
+    EditOrderComponent,
   ],
   imports: [
     BrowserModule,

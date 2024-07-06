@@ -9,8 +9,11 @@ import { AuthService } from 'services/auth.service';
   styleUrls: ['./header.component.css'],
 })
 export class HeaderComponent {
-  constructor(private router: Router, private authService: AuthService) {}
+  constructor(private router: Router, public authService: AuthService) {}
 
+  navigateTo(route: string): void {
+    this.router.navigate([route]);
+  }
   navigateToLogin() {
     this.router.navigate(['/login']);
   }

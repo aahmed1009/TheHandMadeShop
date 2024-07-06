@@ -1,0 +1,26 @@
+<!-- src/app/add-review/add-review.component.html -->
+<div class="container mt-3">
+  <h3>Add Review</h3>
+  <form [formGroup]="addReviewForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="rating" class="form-label">Rating</label>
+      <input
+        type="number"
+        class="form-control"
+        id="rating"
+        formControlName="rating"
+        min="1"
+        max="5"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="comment" class="form-label">Comment</label>
+      <textarea
+        class="form-control"
+        id="comment"
+        formControlName="comment"
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
