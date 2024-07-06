@@ -1,7 +1,7 @@
-<div class="container mt-3">
-  <h3>Manage Orders</h3>
-  <table class="table table-striped">
-    <thead>
+<div class="container mt-3 manage-orders-container">
+  <h3 class="text-center mb-4" style="color: #d81b60">Manage Orders</h3>
+  <table class="table table-bordered table-hover">
+    <thead class="thead-light">
       <tr>
         <th>Order ID</th>
         <th>User ID</th>
@@ -19,8 +19,10 @@
         <td>{{ order.total_amount }}</td>
         <td>{{ order.status }}</td>
         <td>
-          <button class="btn btn-info" (click)="viewOrder(order)">View</button>
-          <button class="btn btn-danger" (click)="deleteOrder(order.id)">
+          <button class="btn btn-info mx-1" (click)="viewOrder(order)">
+            View
+          </button>
+          <button class="btn btn-danger mx-1" (click)="deleteOrder(order.id)">
             Delete
           </button>
         </td>
@@ -38,8 +40,8 @@
   >
     <div class="modal-dialog modal-lg" role="document">
       <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">
+        <div class="modal-header bg-light">
+          <h5 class="modal-title" style="color: #d81b60">
             Order Details (Order ID: {{ selectedOrder.id }})
           </h5>
           <button
@@ -52,20 +54,28 @@
           </button>
         </div>
         <div class="modal-body">
-          <ul>
-            <li *ngFor="let item of selectedOrder.items">
+          <ul *ngIf="selectedOrder.items && selectedOrder.items.length">
+            <li
+              class="list-group-item d-flex align-items-center"
+              *ngFor="let item of selectedOrder.items"
+            >
               <img
                 [src]="item.product_images[0]"
                 alt="Product Image"
-                class="img-thumbnail"
-                style="max-height: 50px; margin-right: 10px"
+                class="img-thumbnail mr-3"
+                style="max-height: 50px"
               />
-              {{ item.product_name }} - Quantity: {{ item.quantity }} - Price:
-              {{ item.price }}
+              <div>
+                {{ item.product_name }} - Quantity: {{ item.quantity }} - Price:
+                {{ item.price }}
+              </div>
             </li>
           </ul>
+          <p *ngIf="!selectedOrder.items || !selectedOrder.items.length">
+            No items found for this order.
+          </p>
         </div>
-        <div class="modal-footer">
+        <div class="modal-footer bg-light">
           <button
             type="button"
             class="btn btn-secondary"

@@ -21,13 +21,27 @@ export class OrdersManagementComponent implements OnInit {
       this.orders = data;
     });
   }
-
   viewOrder(order: any): void {
-    this.apiService.getOrderById(order.id).subscribe((data: any) => {
-      this.selectedOrder = { ...order, items: data.items };
+    this.apiService.getOrderById(order.id).subscribe({
+      next: (data: any) => {
+        this.selectedOrder = { ...order, items: data.items };
+      },
+      error: (err) => {
+        console.error('Error fetching order details', err);
+      },
     });
   }
-
+  getOrderDetails(order: any): void {
+    this.apiService.getOrderById(order.id).subscribe({
+      next: (data: any) => {
+        console.log('Order details:', data); // Debugging line
+        this.selectedOrder = { ...order, items: data.items };
+      },
+      error: (err) => {
+        console.error('Error fetching order details', err);
+      },
+    });
+  }
   deleteOrder(orderId: number): void {
     this.apiService.deleteOrder(orderId).subscribe({
       next: (res) => {

@@ -1,7 +1,7 @@
 <div class="container mt-3">
-  <h3>Your Cart</h3>
+  <h3 class="cart-title">Cart</h3>
   <div *ngIf="cartItems.length > 0; else emptyCart">
-    <table class="table table-striped">
+    <table class="table table-borderless">
       <thead>
         <tr>
           <th>Product</th>
@@ -13,46 +13,50 @@
       </thead>
       <tbody>
         <tr *ngFor="let item of cartItems">
-          <td>
+          <td class="product-info">
             <img
               *ngIf="item.images && item.images.length > 0"
               [src]="item.images[0]"
               alt="{{ item.name }}"
-              style="max-height: 50px; margin-right: 10px"
+              class="cart-product-image"
             />
             {{ item.name }}
           </td>
           <td>
-            <button
-              class="btn btn-secondary btn-sm"
-              (click)="decreaseQuantity(item)"
-            >
-              -
-            </button>
-            {{ item.quantity }}
-            <button
-              class="btn btn-secondary btn-sm"
-              (click)="increaseQuantity(item)"
-            >
-              +
-            </button>
+            <div class="quantity-controls">
+              <button
+                class="btn btn-light btn-sm"
+                (click)="decreaseQuantity(item)"
+              >
+                <i class="fas fa-minus"></i>
+              </button>
+              <span>{{ item.quantity }}</span>
+              <button
+                class="btn btn-light btn-sm"
+                (click)="increaseQuantity(item)"
+              >
+                <i class="fas fa-plus"></i>
+              </button>
+            </div>
           </td>
-          <td>{{ item.price }}</td>
-          <td>{{ item.price * item.quantity }}</td>
+          <td>${{ item.price }}</td>
+          <td>${{ item.price * item.quantity }}</td>
           <td>
-            <button class="btn btn-danger" (click)="removeItem(item.id)">
-              Remove
+            <button class="btn btn-danger btn-sm" (click)="removeItem(item.id)">
+              <i class="fas fa-trash-alt"></i> Remove
             </button>
           </td>
         </tr>
       </tbody>
     </table>
-    <div class="text-right">
+    <div class="total-amount text-right">
       <h4>Total: ${{ getTotalAmount() }}</h4>
-      <button class="btn btn-primary" (click)="checkout()">Checkout</button>
+      <button class="btn btn-primary" (click)="checkout()">
+        <i class="fas fa-credit-card"></i> Checkout
+      </button>
     </div>
   </div>
   <ng-template #emptyCart>
-    <p>Your cart is empty.</p>
+    <p class="empty-cart-text">Your cart is empty.</p>
   </ng-template>
 </div>

@@ -1,42 +1,50 @@
 <div class="container mt-3">
-  <h3>Edit/Delete Products</h3>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Images</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Stock</th>
-        <th>Actions</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let product of products">
-        <td>{{ product.name }}</td>
-        <td>
-          <div *ngIf="product.images">
-            <img
-              *ngFor="let image of product.images"
-              [src]="image"
-              [alt]="product.name"
-              class="img-thumbnail"
-              style="max-height: 100px; margin-right: 5px"
-            />
-          </div>
-        </td>
-        <td>{{ product.description }}</td>
-        <td>{{ product.price }}</td>
-        <td>{{ product.stock }}</td>
-        <td>
-          <button class="btn btn-warning" (click)="editProduct(product.id)">
-            Edit
-          </button>
-          <button class="btn btn-danger" (click)="deleteProduct(product.id)">
-            Delete
-          </button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+  <h3 class="text-center mb-4" style="color: #e91e63">Edit/Delete Products</h3>
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead class="table-bordered">
+        <tr style="background-color: #fce4ec; color: #333">
+          <th>Name</th>
+          <th>Images</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Stock</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of products">
+          <td>{{ product.name }}</td>
+          <td>
+            <div *ngIf="product.images && product.images.length">
+              <img
+                *ngFor="let image of product.images"
+                [src]="image"
+                [alt]="product.name"
+                class="img-thumbnail"
+                style="max-height: 100px; margin-right: 5px"
+              />
+            </div>
+          </td>
+          <td>{{ product.description }}</td>
+          <td>{{ product.price }}</td>
+          <td>{{ product.stock }}</td>
+          <td>
+            <button
+              class="btn btn-custom-warning mb-2"
+              (click)="editProduct(product.id)"
+            >
+              Edit
+            </button>
+            <button
+              class="btn btn-custom-danger"
+              (click)="deleteProduct(product.id)"
+            >
+              Delete
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 </div>

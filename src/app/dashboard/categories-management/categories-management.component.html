@@ -1,7 +1,13 @@
-<div class="container mt-3">
-  <h3>{{ editingCategoryId ? "Edit Category" : "Add New Category" }}</h3>
-  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
-    <div class="mb-3">
+<div class="container mt-3 category-management">
+  <h3 class="category-title text-center">
+    {{ editingCategoryId ? "Edit Category" : "Add New Category" }}
+  </h3>
+  <form
+    [formGroup]="categoryForm"
+    (ngSubmit)="onSubmit()"
+    class="category-form"
+  >
+    <div class="form-group mb-3">
       <label for="name" class="form-label">Category Name</label>
       <input
         type="text"
@@ -10,7 +16,7 @@
         formControlName="name"
       />
     </div>
-    <div class="mb-3">
+    <div class="form-group mb-3">
       <label for="description" class="form-label">Description</label>
       <textarea
         class="form-control"
@@ -18,25 +24,27 @@
         formControlName="description"
       ></textarea>
     </div>
-    <button
-      type="submit"
-      class="btn btn-primary"
-      [disabled]="categoryForm.invalid"
-    >
-      {{ editingCategoryId ? "Update Category" : "Add Category" }}
-    </button>
-    <button
-      type="button"
-      class="btn btn-secondary ms-2"
-      (click)="resetForm()"
-      *ngIf="editingCategoryId !== null"
-    >
-      Cancel
-    </button>
+    <div class="form-buttons text-center">
+      <button
+        type="submit"
+        class="btn btn-primary"
+        [disabled]="categoryForm.invalid"
+      >
+        {{ editingCategoryId ? "Update Category" : "Add Category" }}
+      </button>
+      <button
+        type="button"
+        class="btn btn-secondary ms-2"
+        (click)="resetForm()"
+        *ngIf="editingCategoryId !== null"
+      >
+        Cancel
+      </button>
+    </div>
   </form>
-  <h3 class="mt-5">Categories List</h3>
-  <table class="table table-striped">
-    <thead>
+  <h3 class="mt-5 category-title text-center">Categories List</h3>
+  <table class="table category-table">
+    <thead class="thead-light">
       <tr>
         <th>Name</th>
         <th>Description</th>
@@ -47,8 +55,8 @@
       <tr *ngFor="let category of categories">
         <td>{{ category.name }}</td>
         <td>{{ category.description }}</td>
-        <td>
-          <button class="btn btn-warning" (click)="editCategory(category)">
+        <td class="action-buttons">
+          <button class="btn btn-warning me-2" (click)="editCategory(category)">
             Edit
           </button>
           <button class="btn btn-danger" (click)="deleteCategory(category.id)">

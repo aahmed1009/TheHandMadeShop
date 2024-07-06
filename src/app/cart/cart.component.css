@@ -1,0 +1,151 @@
+.container {
+  max-width: 100%;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-title {
+  text-align: center;
+  font-size: 2.5em; /* Increased font size */
+  color: #ff4081; /* More vivid pink */
+  margin-bottom: 20px;
+}
+
+.table {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.table thead th {
+  vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  color: #ff4081; /* More vivid pink */
+  font-size: 1.2em; /* Increased font size */
+  font-weight: bold;
+}
+
+.table tbody td {
+  vertical-align: middle;
+  border-top: none;
+  font-size: 1.1em; /* Increased font size */
+}
+
+.product-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product-info {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.product-details {
+  display: flex;
+  align-items: center;
+}
+
+.cart-product-image {
+  max-height: 50px;
+  margin-right: 10px;
+  border-radius: 5px;
+}
+
+.product-name {
+  max-width: 200px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-size: 1.1em; /* Increased font size */
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+}
+
+.quantity-controls button {
+  margin: 0 5px;
+  font-size: 1.1em; /* Increased font size */
+}
+
+.total-amount {
+  margin-top: 20px;
+  font-size: 1.3em; /* Increased font size */
+}
+
+.btn-primary {
+  background-color: #ff80ab; /* Bright pink */
+  border-color: #ff80ab;
+  font-size: 1.1em; /* Increased font size */
+}
+
+.btn-primary:hover {
+  background-color: #ff4081; /* More vivid pink */
+  border-color: #ff4081;
+}
+
+.btn-light {
+  background-color: #ffcdd2; /* Light pink */
+  border-color: #ffcdd2;
+  font-size: 1.1em; /* Increased font size */
+}
+
+.btn-light:hover {
+  background-color: #ef9a9a; /* Slightly darker light pink */
+  border-color: #ef9a9a;
+}
+
+.btn-danger {
+  background-color: #ff1744; /* Vivid pink-red */
+  border-color: #ff1744;
+  font-size: 1.1em; /* Increased font size */
+}
+
+.btn-danger:hover {
+  background-color: #d50000; /* Darker pink-red */
+  border-color: #d50000;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.empty-cart-text {
+  text-align: center;
+  font-size: 1.7em; /* Increased font size */
+  color: #ff4081; /* More vivid pink */
+  margin-top: 20px;
+}
+
+h4 {
+  color: #ff4081; /* More vivid pink */
+  font-size: 1.5em; /* Increased font size */
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-y: hidden;
+  }
+
+  .product-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .quantity-controls {
+    flex-direction: column;
+  }
+
+  .quantity-controls button {
+    margin: 5px 0;
+  }
+
+  .total-amount {
+    text-align: center;
+  }
+}

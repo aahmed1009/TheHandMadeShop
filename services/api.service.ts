@@ -107,6 +107,11 @@ export class ApiService {
   getOrderById(orderId: number): Observable<any> {
     return this.http.get<any>(`${this.baseUrl}/get_order.php?id=${orderId}`);
   }
+  getOrderDetails(orderId: number): Observable<any> {
+    return this.http.get<any>(
+      `${this.baseUrl}/get_order_details.php?id=${orderId}`
+    );
+  }
 
   deleteOrder(orderId: number): Observable<any> {
     return this.http.delete<any>(

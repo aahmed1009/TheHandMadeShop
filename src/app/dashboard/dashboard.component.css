@@ -1,0 +1,69 @@
+/* Dashboard Styles */
+.container {
+  background-color: #f8f9fa; /* Light grey background for the container */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  padding: 20px;
+}
+
+.nav-tabs {
+  border-bottom: 2px solid #e91e63; /* Primary color for the active tab underline */
+}
+
+.nav-item .nav-link {
+  color: #333; /* Dark grey text color for nav links */
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.nav-item .nav-link.active {
+  color: #fff;
+  background-color: #e91e63; /* Primary color for active tab */
+}
+
+.nav-item .nav-link:hover {
+  color: #e91e63; /* Primary color on hover */
+}
+
+.tab-content {
+  background-color: #fff; /* White background for tab content */
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+}
+
+@media (max-width: 768px) {
+  .nav-tabs {
+    flex-direction: column;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+}
+
+/* Button Styles */
+.btn-primary {
+  background-color: #e91e63;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: #d81b60;
+}
+
+.btn-secondary {
+  background-color: #f8f9fa;
+  border: 1px solid #e91e63;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+  background-color: #e91e63;
+  color: #fff;
+}

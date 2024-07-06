@@ -1,0 +1,85 @@
+.manage-orders-container {
+  font-family: Arial, sans-serif;
+}
+
+.manage-orders-container h3 {
+  color: #d81b60;
+}
+
+.table-bordered th,
+.table-bordered td {
+  border: 1px solid #f8bbd0;
+}
+
+.table-hover tbody tr:hover {
+  background-color: #fce4ec;
+}
+
+.table thead.thead-light {
+  background-color: #f8bbd0;
+  color: #333;
+}
+
+.btn-info {
+  background-color: #64b5f6;
+  border: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-info:hover {
+  background-color: #42a5f5;
+}
+
+.btn-danger {
+  background-color: #e57373;
+  border: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-danger:hover {
+  background-color: #ef5350;
+}
+
+.modal-header {
+  background-color: #fce4ec;
+  color: #333;
+}
+
+.modal-footer {
+  background-color: #fce4ec;
+}
+
+.modal-header .close {
+  color: #333;
+  opacity: 1;
+}
+
+.list-group-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+@media (max-width: 768px) {
+  .table {
+    font-size: 0.9em;
+  }
+
+  .btn-info,
+  .btn-danger {
+    font-size: 0.9em;
+  }
+
+  .list-group-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .list-group-item img {
+    margin-bottom: 10px;
+  }
+}

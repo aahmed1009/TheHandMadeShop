@@ -1,0 +1,113 @@
+/* Container Styling */
+.container {
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Card Styling */
+.card {
+  background-color: #ffffff; /* White background for the card */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for depth */
+  overflow: hidden;
+}
+
+/* Card Header */
+.card-header {
+  background-color: #e91e63; /* Primary color for header */
+  color: #fff; /* White text */
+  padding: 15px;
+  text-align: center;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 1.5em; /* Increase the font size */
+}
+
+/* Form Labels */
+.form-label {
+  font-weight: bold;
+  color: #333; /* Dark grey text */
+  font-size: 1.1em; /* Increase font size */
+}
+
+/* Form Controls */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ced4da;
+  transition: border-color 0.3s ease;
+  padding: 10px;
+}
+
+.form-control:focus {
+  border-color: #e91e63; /* Primary color on focus */
+  box-shadow: 0 0 5px rgba(233, 30, 99, 0.2); /* Soft pink shadow */
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+/* Button */
+.btn-primary {
+  background-color: #e91e63; /* Primary color */
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  font-size: 1.1em; /* Increase font size */
+}
+
+.btn-primary:hover {
+  background-color: #d81b60; /* Darker primary color on hover */
+}
+
+.btn-primary:disabled {
+  background-color: #f8b3c1; /* Light pink for disabled state */
+  border: none;
+}
+
+/* Spinner */
+.spinner-border {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.spinner-border.text-primary {
+  color: #e91e63; /* Primary color for spinner */
+}
+
+/* Alerts */
+.alert {
+  border-radius: 5px;
+  padding: 10px 15px;
+}
+
+.alert-success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.alert-danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .card-header h3 {
+    font-size: 1.2em; /* Adjust font size for smaller screens */
+  }
+
+  .btn-primary {
+    width: 100%;
+    padding: 15px;
+    font-size: 1em; /* Adjust font size for smaller screens */
+  }
+}

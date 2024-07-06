@@ -1,0 +1,117 @@
+/* Custom CSS for Category Management Component */
+.category-management {
+  background-color: #fafafa;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.category-title {
+  color: #d81b60;
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.category-form .form-group {
+  margin-bottom: 20px;
+}
+
+.category-form .form-label {
+  color: #333;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.category-form .form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.category-form .form-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.category-form .btn {
+  font-weight: bold;
+  padding: 10px 20px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.category-form .btn-primary {
+  background-color: #d81b60;
+  border: none;
+}
+
+.category-form .btn-primary:hover {
+  background-color: #c2185b;
+  transform: scale(1.05);
+}
+
+.category-form .btn-secondary {
+  background-color: #b0bec5;
+  border: none;
+  color: #fff;
+}
+
+.category-form .btn-secondary:hover {
+  background-color: #90a4ae;
+  transform: scale(1.05);
+}
+
+.category-table {
+  margin-top: 30px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.category-table thead th {
+  background-color: #d81b60;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+}
+
+.category-table th,
+.category-table td {
+  text-align: center;
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.category-table tbody tr:hover {
+  background-color: #fce4ec;
+}
+
+.category-table .action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.category-table .btn-warning {
+  background-color: #ffb74d;
+  border: none;
+}
+
+.category-table .btn-warning:hover {
+  background-color: #ffa726;
+  transform: scale(1.05);
+}
+
+.category-table .btn-danger {
+  background-color: #ef5350;
+  border: none;
+}
+
+.category-table .btn-danger:hover {
+  background-color: #e53935;
+  transform: scale(1.05);
+}

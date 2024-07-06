@@ -1,0 +1,86 @@
+.edit-product-container {
+  font-family: Arial, sans-serif;
+}
+
+.edit-product-container h3 {
+  color: #e91e63;
+}
+
+.form-label {
+  font-weight: bold;
+  color: #880e4f;
+}
+
+.form-control {
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.btn-custom-primary {
+  background-color: #e91e63;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+  display: block;
+  width: 100%;
+}
+
+.btn-custom-primary:hover {
+  background-color: #d81b60;
+}
+
+.existing-image-container {
+  display: flex;
+  align-items: center;
+}
+
+.existing-image-container img {
+  max-height: 100px;
+  margin-right: 10px;
+  transition: transform 0.3s ease;
+}
+
+.existing-image-container img:hover {
+  transform: scale(1.1);
+}
+
+.btn-custom-danger {
+  background-color: #dc3545;
+  border: none;
+  padding: 5px 10px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.btn-custom-danger:hover {
+  background-color: #c82333;
+}
+
+@media (max-width: 768px) {
+  .form-control {
+    font-size: 1em;
+  }
+
+  .btn-custom-primary,
+  .btn-custom-danger {
+    font-size: 1em;
+  }
+
+  .existing-image-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .existing-image-container img {
+    margin-bottom: 10px;
+  }
+
+  .btn-custom-danger {
+    width: 100%;
+  }
+}

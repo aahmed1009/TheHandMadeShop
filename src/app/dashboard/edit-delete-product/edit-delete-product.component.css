@@ -1,0 +1,76 @@
+.container {
+  font-family: Arial, sans-serif;
+}
+
+.table {
+  background-color: #fff;
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+.table th {
+  font-weight: bold;
+  border: 1px solid #dee2e6; /* Add border to table headings */
+}
+
+.table td img {
+  max-height: 100px;
+  margin-right: 5px;
+  transition: transform 0.3s ease;
+}
+
+.table td img:hover {
+  transform: scale(1.1);
+}
+
+.btn {
+  font-size: 0.9em;
+  padding: 8px 15px; /* Custom padding */
+  display: inline-block; /* Ensures that the buttons take only the necessary width */
+  margin: 5px; /* Custom margin for spacing between buttons */
+}
+
+/* Custom Button Styles */
+.btn-custom-warning {
+  background-color: #ffc107; /* Bootstrap warning color */
+  border-color: #ffc107;
+  color: #fff;
+}
+
+.btn-custom-warning:hover {
+  background-color: #e0a800; /* Darker shade of warning color */
+  border-color: #e0a800;
+  color: #fff;
+}
+
+.btn-custom-danger {
+  background-color: #dc3545; /* Bootstrap danger color */
+  border-color: #dc3545;
+  color: #fff;
+}
+
+.btn-custom-danger:hover {
+  background-color: #c82333; /* Darker shade of danger color */
+  border-color: #c82333;
+  color: #fff;
+}
+
+@media (max-width: 768px) {
+  .table-responsive {
+    overflow-x: auto;
+  }
+
+  .btn {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  .btn-custom-warning,
+  .btn-custom-danger {
+    font-size: 1em;
+  }
+}

@@ -17,16 +17,21 @@ export class EditDeleteProductComponent {
   }
 
   loadProducts(): void {
-    this.apiService.getProducts().subscribe((data: any) => {
-      this.products = data.map((product: any) => {
-        if (product.images) {
-          product.images = JSON.parse(product.images).map(
-            (img: string) => `http://localhost/APIS/uploads/${img}`
-          );
-        }
-        return product;
-      });
-    });
+    this.apiService.getProducts().subscribe(
+      (data: any) => {
+        console.log('Received data:', data);
+        this.products = data.map((product: any) => {
+          if (product.images) {
+            product.images = product.images.map((img: string) => img);
+          }
+          return product;
+        });
+        console.log('Processed products:', this.products);
+      },
+      (error) => {
+        console.error('Error fetching products:', error);
+      }
+    );
   }
 
   editProduct(productId: number): void {
